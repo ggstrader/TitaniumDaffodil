@@ -1,0 +1,227 @@
+@using Syncfusion.Blazor.SplitButtons
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.Notifications
+@using FocusEventArgs = Microsoft.AspNetCore.Components.Web.FocusEventArgs
+
+<PageTitle>Create an Account</PageTitle>
+
+
+<SfMenu TValue="MenuItem"> 
+   <MenuItems>
+      <MenuItem Text="asdf">
+        <MenuItems>
+           <MenuItem Text="asdfasdf"></MenuItem>
+        </MenuItems>
+      </MenuItem> 
+      <MenuItem Text="as"></MenuItem>
+   </MenuItems>
+</SfMenu>
+<br/>
+
+
+<SfMenu TValue="MenuItem"> 
+    <MenuItems>
+      <MenuItem Text="asdf">
+        <MenuItems>
+           <MenuItem Text="asdfasdf"></MenuItem>
+        </MenuItems>
+      </MenuItem> 
+      <MenuItem Text="as"></MenuItem>
+   </MenuItems>
+   <MenuItems>
+      <MenuItem Text="asdfasdf" IconCss="e-icons e-menu"></MenuItem> 
+      <MenuItem Text="asdfasdf" IconCss="e-icons e-menu"></MenuItem> 
+   </MenuItems>
+</SfMenu>
+<br/>
+
+<SfMenu Orientation="Syncfusion.Blazor.Navigations.Orientation.Vertical" TValue="MenuItem"> @* ToDo: Fill the TValue *@
+   <MenuItems>
+      <MenuItem Text="asdf"> 
+        <MenuItems>
+          <MenuItem Text="asdf"></MenuItem>
+        </MenuItems>
+      </MenuItem>
+   </MenuItems>
+   <MenuItems>
+      <MenuItem Text="asdf">
+        <MenuItems>
+           <MenuItem Text="asdfasdf"></MenuItem>
+        </MenuItems>
+      </MenuItem> 
+      <MenuItem Text="as"></MenuItem>
+   </MenuItems>
+</SfMenu>
+
+
+<div class="pageheaderdiv">
+    <h1 class="pageheader">Create an Account</h1>
+    <h2>Ocean Wide</h2>
+    Ocean Wide
+</div>
+<SfTextBox CssClass="e-outline" Placeholder="First Name" FloatLabelType="@FloatLabelType.Auto"></SfTextBox>
+<input @bind-value=age/><br/>
+@if(age > 18)
+{
+    <SfTextBox CssClass="e-outline" Placeholder="Last Name" FloatLabelType="@FloatLabelType.Auto"></SfTextBox>
+}
+else
+{
+    <SfMessage>Must be 18 or older</SfMessage>
+    <SfTextBox CssClass="e-outline" Placeholder="Last Name" FloatLabelType="@FloatLabelType.Auto" Disabled="true"></SfTextBox>
+}
+<SfTextBox CssClass="e-outline" Placeholder="Last Name" FloatLabelType="@FloatLabelType.Auto" Disabled="@(age < 18)"></SfTextBox>
+
+@code {
+    int age = 0;
+}
+<br />
+<div class="TinderLookalike_AccountCreation">
+    @* title *@
+    <br />
+    <div class="test1">
+        <div class="leftside">
+            <div>
+                <SfTextBox CssClass="e-outline" Placeholder="First Name" FloatLabelType="@FloatLabelType.Auto">
+                </SfTextBox>
+                <SfButtonGroup Mode="Syncfusion.Blazor.SplitButtons.SelectionMode.Single">
+                    <ButtonGroupButton @bind-Selected="@leftSelected">Left</ButtonGroupButton>
+                    <ButtonGroupButton @bind-Selected="@centerSelected">Center</ButtonGroupButton>
+                    <ButtonGroupButton @bind-Selected="@rightSelected">Right</ButtonGroupButton>
+                </SfButtonGroup>
+                <SfButtonGroup Mode="Syncfusion.Blazor.SplitButtons.SelectionMode.Multiple">
+                    <ButtonGroupButton @bind-Selected="@boldSelected">Bold</ButtonGroupButton>
+                    <ButtonGroupButton @bind-Selected="@italicSelected">Italic</ButtonGroupButton>
+                    <ButtonGroupButton @bind-Selected="@underlineSelected">Underline</ButtonGroupButton>
+                </SfButtonGroup>
+                <SfButton Content="jeff" @onclick=yolo>asdf</SfButton>
+                <SfButton Content="yeff" IsPrimary="true" @onclick=yolo>asdfasdf</SfButton>
+                <SfCheckBox TChecked="bool" Label="Show my gender on my profile" Checked="false" />
+                <SfCheckBox TChecked="bool" Label="Show my gender on my profile" Checked="false" />
+                <SfCheckBox TChecked="bool" Label="Show my gender on my profile" Checked="false" />
+            </div>
+        </div>
+        <div class='rightside'>
+            <div class='photos'>
+
+                @foreach (var photo in _photos)
+                {
+                    <div class="photo">
+                        @* <img src="@photo.Url" /> *@
+                        <button><span>+</span></button>
+                    </div>
+                }
+            </div>
+            <div>Add at least 2 photos to continue!</div>
+
+
+
+        </div>
+    </div>
+</div>
+
+    @* help: https://blazor.syncfusion.com/documentation/range-slider/tooltip/ *@
+    <SfSlider  @bind-Value="valx" ShowButtons="true"> @* ToDo: Fill the bind Value *@
+</SfSlider> @valx
+<SfSlider TValue="int[]" Min="MinValue()" Max="@MaxValue()" Type="SliderType.Range" @bind-Value="@SliderValues">
+    <SliderEvents TValue="int[]" OnTooltipChange="@TooltipChange" TicksRendering="@TickesRendering"></SliderEvents>
+    <SliderTicks Placement="Placement.Before" LargeStep="7200000" SmallStep="3600000" ShowSmallTicks="true"></SliderTicks>
+    @* <SliderTooltip Placement="TooltipPlacement.After" IsVisible="true"></SliderTooltip> *@
+</SfSlider>
+
+@code{
+    int valx = 30;
+    int[] SliderValues = new int[] { 43200000, 54000000 };
+    public double MinValue()
+    {
+        DateTime datetime = new DateTime(2013, 6, 13, 11, 0, 0);
+        return datetime.TimeOfDay.TotalMilliseconds;
+    }
+    public double MaxValue()
+    {
+        DateTime datetime = new DateTime(2013, 6, 13, 23, 0, 0);
+        return datetime.TimeOfDay.TotalMilliseconds;
+    }
+    public void TickesRendering(SliderTickEventArgs args)
+    {
+        double time = args.Value / 3600000;
+        args.Text = time > 11 ? time + ".00 PM" : time + ".00 AM";
+    }
+    public void TooltipChange(SliderTooltipEventArgs<int[]> args)
+    {
+        double FirstValue = args.Value[0] / 3600000;
+        double SecondValue = args.Value[1] / 3600000;
+
+        if (FirstValue <= 11 && SecondValue < 11)
+        {
+            args.Text = FirstValue + ".00 AM -" + SecondValue + ".00 AM";
+        }
+        else if (FirstValue <= 11 && SecondValue > 11)
+        {
+            args.Text = FirstValue + ".00 AM -" + SecondValue + ".00 PM";
+        }
+        else if (FirstValue > 11 && SecondValue > 11)
+        {
+            args.Text = FirstValue + ".00 PM -" + SecondValue + ".00 PM";
+        }
+    }
+}
+
+<div class='e-input-group'>
+    <input class='e-input' Placeholder='Date of Birth' type='text'>
+    <span class='e-input-group-icon e-input-calendar'></span>
+</div>
+
+<SfTextBox CssClass="e-corner e-outline" Placeholder='First Name' FloatLabelType='@FloatLabelType.Auto'></SfTextBox>
+
+@for (int i = 0; i < 10; i++)
+{
+    <div class="W(640px) CenterAlign M(a)">
+        <hr class="Bdw(0) M(0) Bgc($c-ds-divider-primary) H(1px) Mt(-1px) D(ib) Fxb(1/3)">
+        <div class="D(ib) Mx(a) Fz($m) Fs(i) Fxb(1/3) Ta(c)">Optional</div>
+        <hr class="Bdw(0) M(0) Bgc($c-ds-divider-primary) H(1px) Mt(-1px) D(ib) Fxb(1/3)">
+    </div>
+}
+
+
+
+
+<style>
+    .e-input-group-icon:before {
+        font-family: e-icons;
+    }
+
+    .e-input-group .e-input-group-icon.e-input-calendar {
+        font-size: 16px;
+    }
+
+    .e-input-group-icon.e-input-calendar:before {
+        content: "";
+    }
+</style>
+
+@code {
+    private bool boldSelected = true;
+    private bool italicSelected;
+    private bool underlineSelected;
+    private bool leftSelected;
+    private bool centerSelected;
+    private bool rightSelected;
+    void yolo() { Console.WriteLine("yolo"); }
+    class Photo
+    {
+        public string? Name { get; set; }
+        public string? Url { get; set; }
+    };
+
+    List<Photo> _photos = new List<Photo> {
+        new Photo { Name = "Photo 2", Url = "https://picsum.photos/120/150" },
+        new Photo { Name = "Photo 1", Url = "https://picsum.photos/120/150" },
+        new Photo { Name = "Photo 6", Url = "https://picsum.photos/120/150" },
+        new Photo { Name = "Photo 3", Url = "https://picsum.photos/120/150" },
+        new Photo { Name = "Photo 4", Url = "https://picsum.photos/120/150" },
+        new Photo { Name = "Photo 5", Url = "https://picsum.photos/120/150" },
+    };
+}

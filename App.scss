@@ -1,0 +1,102 @@
+@import 'Pages/Main.scss';
+
+
+* {
+    font-family: 'Nunito Sans', sans-serif;
+    
+}
+h1 {
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: 'BioRhyme', serif;
+}
+
+
+.e-folder-name {
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.e-open {
+    .e-icons {
+        margin-right: 1em;
+    }
+
+    .e-text {
+        overflow: hidden;
+        font-size: 1em;
+    }
+}
+
+.sidebar-item {
+    text-align: center;
+    border-bottom: 1px #e5e5e58a solid;
+}
+
+
+.e-sidebar {
+    background: #2d323e;
+    overflow: hidden;
+
+    & .expand::before,
+    &.e-right.e-open .expand::before {
+        content: '\e10f';
+    }
+
+    &.e-open .expand::before,
+    &.e-right .expand::before {
+        content: '\e10e';
+    }
+
+    &.e-open .sidebar-item {
+        text-align: left;
+        padding-left: 15px;
+        color: #c0c2c5;
+    }
+
+    &.e-dock {
+        &.e-close span.e-text{
+            display: none;
+        }
+        &.e-open span.e-text {
+            display: inline-block;
+        }
+    }
+    
+
+    // .e-icons::before {
+    //     font-size: 25px;
+    // }
+
+    .home::before {
+        content: '\e102';
+    }
+
+    .profile::before {
+        content: '\e10c';
+    }
+
+    .info::before {
+        content: '\e11b';
+    }
+
+    .settings::before {
+        content: '\e10b';
+    }
+
+    li {
+        list-style-type: none;
+        cursor: pointer;
+    }
+
+    ul {
+        padding: 0px;
+    }
+
+    span.e-icons {
+        color: #c0c2c5;
+        line-height: 2
+    }
+}
+

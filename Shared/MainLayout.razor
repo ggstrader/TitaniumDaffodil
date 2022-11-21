@@ -1,0 +1,53 @@
+@inherits LayoutComponentBase
+
+@* 
+@using Syncfusion.Blazor.Navigations
+
+<div id="header" style="height:45px;color:white;background-color:midnightblue;font-size:1.2rem;line-height:45px;">
+    <span style="position:absolute; left:10px; font-size:25px;">&#9776;</span>
+    <span style="margin-left:45%;">Header</span>
+</div>
+
+<SfSidebar Width="250px" MediaQuery="(min-width: 1000px)">
+    <ChildContent>
+        <div style="text-align: center;" class="text-content"> Sidebar </div>
+    </ChildContent>
+</SfSidebar>
+
+<div class="text-content" style="text-align: center;">Main content</div>
+
+<style>
+    .e-sidebar {
+        background-color: #f8f8f8;
+        color: black;
+    }
+
+    .text-content {
+        font-size: 1.5rem;
+        padding: 3rem;
+    }
+
+    .main > div {
+        padding: 0px !important;
+    }
+</style> *@
+
+
+
+<SideBar/>
+@* <SideBar2/> *@
+
+<div class="page">
+    @* <div class="sidebar">
+        <NavMenu />
+        </div> *@
+    <div></div>
+    <div>
+        <main>
+            <article class="content px-4">
+                @Body
+            </article>
+        </main>
+    </div>
+    <div></div>
+</div>

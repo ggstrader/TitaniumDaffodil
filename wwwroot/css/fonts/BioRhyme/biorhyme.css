@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'BioRhyme';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url('./BioRhyme-ExtraLight.ttf') format('truetype');
+}
