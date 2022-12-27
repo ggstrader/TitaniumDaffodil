@@ -1,3 +1,26 @@
+* {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h1 {
+  font-family: "Cinzel Decorative", cursive;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: "BioRhyme", serif;
+}
+
+.page_shadow {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  margin: 0;
+  padding: 0;
+  z-index: 100 !important;
+  pointer-events: none;
+}
+
 .page {
   display: grid;
   grid-template-columns: 1fr min(850px, 95%) 1fr;
@@ -8,19 +31,6 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 3rem;
   width: 100%;
-}
-
-.custom-appbar {
-  /* the appbar is rounded, raised, and centered */
-  border-radius: 1rem;
-  bottom: 4vh !important;
-  width: 80%;
-  max-width: fit-content;
-  margin: 0 auto;
-}
-.custom-appbar * {
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
 }
 
 .leftside > * {
@@ -136,38 +146,143 @@
   text-align: center;
 }
 
-* {
-  font-family: "Nunito Sans", sans-serif;
+.appbar_container {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  position: fixed;
+  z-index: 101 !important;
 }
 
-h1 {
-  font-family: "Cinzel Decorative", cursive;
+.custom-appbar {
+  border-radius: 1rem;
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  width: fit-content;
+  bottom: 6vh !important;
+  box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1), 2px 0 6px rgba(0, 0, 0, 0.2) !important;
+  margin: 0 auto;
+}
+.custom-appbar * {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
-h2, h3, h4, h5, h6 {
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  background-color: #eee;
+  transition: width 0.2s ease;
+}
+.sidebar.is-visible {
+  width: 200px;
+}
+.sidebar .sidebar-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+}
+.e-avatar.image {
+  background-image: url("https://picsum.photos/200/300/?random");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+  margin-left: 35%;
+  margin-top: 15px;
+  font-size: 2.5em !important;
+}
+
+.e-acrdn-content li {
+  height: 28px !important;
+  line-height: 28px !important;
+  font-size: 16px;
+}
+
+.sidebar-name {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 0.5rem;
+  margin-left: 3rem;
+  margin-right: 1.5rem;
+  width: min-content;
+  height: min-content;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.sidebar-firstname {
+  font-size: 3rem;
+  text-align: right;
+  font-family: "Nunito Sans", sans-serif !important;
+}
+
+.sidebar-lastname {
+  text-align: left;
+  font-size: 1rem;
   font-family: "BioRhyme", serif;
+}
+
+.e-acrdn-content li,
+.e-acrdn-content li .e-content-icon:hover {
+  cursor: pointer;
+  color: #165ee3 !important;
+}
+
+.text-content {
+  font-size: 30px;
+  padding: 3rem;
+}
+
+.e-tbar-menu-icon:before {
+  content: "\e718";
+  color: rgb(88, 88, 88);
+  font-size: 16px;
+  content: "\e10f";
+}
+
+.e-toolbar {
+  background-color: transparent !important;
+}
+.e-toolbar .e-toolbar-items, .e-toolbar .e-toolbar-item .e-tbar-btn.e-btn {
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 3rem;
+  background-color: transparent !important;
 }
 
 .e-folder-name {
   font-family: "Cinzel Decorative", cursive;
+  background: -webkit-linear-gradient(rgb(204, 182, 157), rgb(66, 50, 25));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .e-open .e-icons {
   margin-right: 1em;
+  margin-left: 1rem;
 }
 .e-open .e-text {
   overflow: hidden;
   font-size: 1em;
-}
-
-.sidebar-item {
-  text-align: center;
-  border-bottom: 1px rgba(229, 229, 229, 0.5411764706) solid;
+  margin-left: 1rem;
 }
 
 .e-sidebar {
-  background: #2d323e;
+  background: #000000;
+  color: black;
+  background-color: #f5f5f5;
   overflow: hidden;
+  z-index: 99 !important;
+  width: min-content !important;
 }
 .e-sidebar .expand::before, .e-sidebar.e-right.e-open .expand::before {
   content: "\e10f";
@@ -176,9 +291,9 @@ h2, h3, h4, h5, h6 {
   content: "\e10e";
 }
 .e-sidebar.e-open .sidebar-item {
-  text-align: left;
+  text-align: right;
   padding-left: 15px;
-  color: #c0c2c5;
+  color: #b4b4b4;
 }
 .e-sidebar.e-dock.e-close span.e-text {
   display: none;
@@ -186,17 +301,8 @@ h2, h3, h4, h5, h6 {
 .e-sidebar.e-dock.e-open span.e-text {
   display: inline-block;
 }
-.e-sidebar .home::before {
-  content: "\e102";
-}
-.e-sidebar .profile::before {
-  content: "\e10c";
-}
-.e-sidebar .info::before {
-  content: "\e11b";
-}
-.e-sidebar .settings::before {
-  content: "\e10b";
+.e-sidebar .e-icons::before {
+  font-size: 1rem;
 }
 .e-sidebar li {
   list-style-type: none;
@@ -210,4 +316,8 @@ h2, h3, h4, h5, h6 {
   line-height: 2;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../Pages/Main.scss%22,%22../../App.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAKA;EACI;EACA;;;AAIJ;EACI;EACA;EACA;EACA;;;AAGJ;AACI;EACA;EACA;EACA;EACA;EACA;;AACA;EACI;EACA;;;AAQJ;EACI;EACA;EACA;EACA;EACA;EACA;;;AAIR;EACI;EACA;EACA;EACA;EACA;EACA;;AACA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;AACI;EACA;EAEA;EAEA;EACA;EACA;EACA;;;AAKZ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;EACA;EACA;;;AAGJ;EACI;;;AAGJ;EACI;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;;;AAGJ;EACI;EACA;;;AAGJ;EACI;;;ACjJJ;EACI;;;AAGJ;EACI;;;AAGJ;EACI;;;AAIJ;EACI;;;AAIA;EACI;;AAGJ;EACI;EACA;;;AAIR;EACI;EACA;;;AAIJ;EACI;EACA;;AAEA;EAEI;;AAGJ;EAEI;;AAGJ;EACI;EACA;EACA;;AAIA;EACI;;AAEJ;EACI;;AASR;EACI;;AAGJ;EACI;;AAGJ;EACI;;AAGJ;EACI;;AAGJ;EACI;EACA;;AAGJ;EACI;;AAGJ;EACI;EACA%22,%22file%22:%22site.css%22%7D */
+:root {
+  --bs-body-color: red !important;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../App.scss%22,%22../../Pages/Main.scss%22,%22../../css/appbar.scss%22,%22../../css/sidebar.scss%22,%22../../css/theme.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAIA;EACI;;;AAGJ;EACI;;;AAGJ;EACI;;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;ACnBJ;EACI;EACA;;;AAIJ;EACI;EACA;EACA;EACA;;;AAOA;EACI;EACA;EACA;EACA;EACA;EACA;;;AAIR;EACI;EACA;EACA;EACA;EACA;EACA;;AACA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;AACI;EACA;EAEA;EAEA;EACA;EACA;EACA;;;AAKZ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;EACA;EACA;;;AAGJ;EACI;;;AAGJ;EACI;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;;;AAGJ;EACI;EACA;;;AAGJ;EACI;;;ACvIJ;EACI;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EAEA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;;;ACpBR;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;;AAGJ;EACI;EACA;;;AAIR;EACI;IACI;;;AAMR;EAEI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EAEA;EAEA;EAEA;;;AAIJ;EACI;EACA;EACA;;;AAEJ;EACI;EACA;EAEA;;;AAQJ;AAAA;EAEI;EACA;;;AAGJ;EACI;EACA;;;AAGJ;EACI;EACA;EACA;EACA;;;AAGJ;EACI;;AACA;EACI;EACA;EACJ;;;AAMJ;EACI;EACA;EACA;EACA;;;AAIA;EACI;EACA;;AAGJ;EACI;EACA;EACA;;;AAKR;EACI;EACA;EACA;EACA;EACA;EA4CA;;AA1CA;EAEI;;AAGJ;EAEI;;AAGJ;EACI;EACA;EACA;;AAIA;EACI;;AAGJ;EACI;;AAOR;EAAmB;;AAEnB;EACI;EACA;;AAGJ;EAAK;;AAEL;EACI;EACA;;;AChLR;EACI%22,%22file%22:%22site.css%22%7D */

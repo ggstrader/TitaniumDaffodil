@@ -1,0 +1,23 @@
+.appbar_container {
+    display: grid;
+    place-items:  center;
+    width: 100%;
+    position: fixed;
+    z-index: 101 !important; ;
+}
+
+.custom-appbar {
+    border-radius: 1rem;
+    // don't round the bottom right corner
+    border-top-right-radius: .5rem;
+    border-top-left-radius: .5rem;
+    width: fit-content;
+    bottom: 6vh !important;
+    box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1), 2px 0 6px rgba(0, 0, 0, 0.2) !important;
+    margin: 0 auto;
+    
+    * {
+        margin-right: .5rem;
+        margin-left: .5rem;
+    }
+}

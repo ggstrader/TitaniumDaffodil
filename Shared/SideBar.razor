@@ -1,47 +1,46 @@
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@inject IState<SideBarState> SidebarState;
+
 @using Syncfusion.Blazor.Navigations
+@using AccordionItem = OWAccordionItem
 
 
-<SfSidebar @ref="sidebarObj" Width="220px" DockSize="72px" EnableDock=true @bind-IsOpen="SidebarToggle">
+<SfSidebar @ref="sidebarObj" @bind-IsOpen="@SidebarState.Value.isOpen" MediaQuery="(min-width: 1000px)">
     <ChildContent>
-        <div class="dock">
-            <ul>
-                <li class="sidebar-item" id="toggle" @onclick="Toggle">
-                    <span class="e-icons expand"></span>
-                    <span class="e-text" title="menu">Menu</span>
-                </li>
-                <li class="sidebar-item">
-                    <span class="e-icons home"></span>
-                    <span class="e-text" title="home">Home</span>
-                </li>
-                <li class="sidebar-item">
-                    <span class="e-icons profile"></span>
-                    <span class="e-text" title="profile">Profile</span>
-                </li>
-                <li class="sidebar-item">
-                    <span class="e-icons info"></span>
-                    <span class="e-text" title="info">Info</span>
-                </li>
-                <li class="sidebar-item">
-                    <span class="e-icons settings"></span>
-                    <span class="e-text" title="settings">Settings</span>
-                </li>
-            </ul>
+        <div class="sidebar-item" id="toggle" @onclick="SidebarState.ToggleSidebar()">
+            <span class="e-icons expand"></span>
         </div>
+
+        <span class="e-avatar e-avatar-large e-avatar-circle image"></span>
+        <div class="sidebar-name">
+            <div class="sidebar-firstname">John</div>
+            <div class="sidebar-lastname">Doughboy</div>
+        </div>
+
+        <SfAccordion>
+            <AccordionItems>
+                @foreach (var accordionItem in AccordionItems)
+                {
+                    <AccordionItem Header="@accordionItem.Header" IconCss="@accordionItem.IconCss"
+                    Expanded="@accordionItem.Expanded">
+                        <ContentTemplate>
+                            <ul>
+                                @foreach (var content in accordionItem.Content)
+                                {
+                                    <li><span class="@content.IconCss">@content.Text</span> </li>
+                                }
+                            </ul>
+                        </ContentTemplate>
+                    </AccordionItem>
+                }
+            </AccordionItems>
+        </SfAccordion>
+        <NavLinks />
     </ChildContent>
 </SfSidebar>
 
+@code {
 
-@code{
-    SfSidebar? sidebarObj;
-    public bool SidebarToggle = false;
-    public void Toggle()
-    {
-        SidebarToggle = !SidebarToggle;
-    }
+    [Parameter] public List<AccordionItem> AccordionItems { get; set; }
+    private SfSidebar sidebarObj;
 }
-
-<style>
-    /* Content area styles */
-
-    /* end of sidebar styles */
-</style>

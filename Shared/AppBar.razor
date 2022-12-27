@@ -1,0 +1,27 @@
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Navigations
+
+<div class="appbar_container">
+    <SfAppBar Mode="AppBarMode.Regular" ColorMode="AppBarColor.Light" Position="AppBarPosition.Bottom" IsSticky="true"
+        CssClass="custom-appbar ralign">
+
+        <SfButton CssClass="e-inherit ralign" IconCss="e-icons e-menu" Content="">asdfasdfasdf</SfButton>
+        <span class="regular ralign">Text Here</span>
+        <AppBarSpacer></AppBarSpacer>
+        <span class="regular ralign">Text Here</span>
+        <AppBarSeparator></AppBarSeparator>
+        <span class="regular ralign">Text Here</span>
+        <SfMenu CssClass="e-inherit ralign" TValue="MenuItem">
+            <MenuItems>
+                <MenuItem Text="asdf">
+                <MenuItems>
+                    <MenuItem Text="asdfasdf">
+                    </MenuItem>
+                </MenuItems>
+                </MenuItem>
+                <MenuItem Text="as">
+                </MenuItem>
+            </MenuItems>
+        </SfMenu>
+    </SfAppBar>
+</div> 

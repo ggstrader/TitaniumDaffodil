@@ -1,0 +1,5 @@
+Create a razor component for a Blazor Web Assembly application.
+It's a sidebar that can expand and collapse.
+
+
+context: Blazor WASM .NET6.0 PWA application

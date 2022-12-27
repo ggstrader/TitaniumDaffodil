@@ -1,0 +1,181 @@
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background-color: #eee;
+    transition: width 0.2s ease;
+
+    &.is-visible {
+        width: 200px;
+    }
+
+    .sidebar-content {
+        height: 100%;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+
+
+.e-avatar.image {
+    // get a random background image
+    background-image: url('https://picsum.photos/200/300/?random');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+    margin-left: 35%;
+    margin-top: 15px;
+    font-size: 2.5em !important;
+}
+
+.e-acrdn-content li {
+    height: 28px !important;
+    line-height: 28px !important;
+    font-size: 16px;
+}
+
+.sidebar-name {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: .5rem;
+    margin-left: 3rem;
+    margin-right: 1.5rem;
+    width: min-content;
+    height: min-content;
+    // align items to vertical center
+    align-items: center;
+    // align content to vertical center
+    align-content: center;
+    // justify content to horizontal center
+    justify-content: center;
+
+}
+
+.sidebar-firstname {
+    font-size: 3rem;
+    text-align: right;
+    font-family: 'Nunito Sans', sans-serif !important;
+}
+.sidebar-lastname {
+    text-align: left;
+    font-size: 1rem;
+    // font-style: italic;
+    font-family: 'BioRhyme', serif;
+
+}
+.sidebar-firstname,
+.sidebar-lastname {
+
+}
+
+.e-acrdn-content li,
+.e-acrdn-content li .e-content-icon:hover {
+    cursor: pointer;
+    color: #165ee3 !important;
+}
+
+.text-content {
+    font-size: 30px;
+    padding: 3rem;
+}
+
+.e-tbar-menu-icon:before {
+    content: "\e718";
+    color: rgb(88, 88, 88);
+    font-size: 16px;
+    content: '\e10f';
+
+}
+.e-toolbar {
+    background-color: transparent !important;
+    .e-toolbar-items, .e-toolbar-item .e-tbar-btn.e-btn {
+        font-family: 'Cinzel Decorative', cursive;
+        font-size: 3rem; 
+    background-color: transparent !important;
+
+    }
+}
+
+
+.e-folder-name {
+    font-family: 'Cinzel Decorative', cursive;
+    background: -webkit-linear-gradient(rgb(204, 182, 157), rgb(66, 50, 25));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+}
+
+.e-open {
+    .e-icons {
+        margin-right: 1em;
+        margin-left: 1rem;
+    }
+
+    .e-text {
+        overflow: hidden;
+        font-size: 1em;
+        margin-left: 1rem;
+    }
+}
+
+
+.e-sidebar {
+    background: #000000;
+    color: black;
+    background-color: #f5f5f5;
+    overflow: hidden;
+    z-index: 99 !important;
+
+    & .expand::before,
+    &.e-right.e-open .expand::before {
+        content: '\e10f';
+    }
+
+    &.e-open .expand::before,
+    &.e-right .expand::before {
+        content: '\e10e';
+    }
+
+    &.e-open .sidebar-item {
+        text-align: right;
+        padding-left: 15px;
+        color: #b4b4b4;
+    }
+
+    &.e-dock {
+        &.e-close span.e-text {
+            display: none;
+        }
+
+        &.e-open span.e-text {
+            display: inline-block;
+        }
+
+        // &.e-close > :not(.e-icons) { display: none; }
+    }
+
+
+    .e-icons::before { font-size: 1rem; }
+
+    li {
+        list-style-type: none;
+        cursor: pointer;
+    }
+
+    ul { padding: 0px; }
+
+    span.e-icons {
+        color: #c0c2c5;
+        line-height: 2
+    }
+    width: min-content !important;
+
+}

@@ -1,0 +1,18 @@
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@inject IState<SideBarState> SidebarState;
+
+@using Syncfusion.Blazor.Navigations
+
+<SfToolbar>
+    <ToolbarItems>
+        <ToolbarItem PrefixIcon="e-tbar-menu-icon tb-icons" TooltipText="Menu" OnClick="@SidebarState.ToggleSidebar()">
+        </ToolbarItem>
+        <ToolbarItem Align="@ItemAlign.Center">
+            <Template>
+                <div class="e-folder">
+                    <div class="e-folder-name">Ocean Wide</div>
+                </div>
+            </Template>
+        </ToolbarItem>
+    </ToolbarItems>
+</SfToolbar>

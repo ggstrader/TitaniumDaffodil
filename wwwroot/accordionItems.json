@@ -1,0 +1,66 @@
+[
+    {
+        "Header": "Dashboard",
+        "IconCss": "e-dashboard e-icons",
+        "Expanded": true,
+        "Content": [
+            {
+                "IconCss": "e-icons e-content-icon",
+                "Text": "Sales Dashboard"
+            },
+            {
+                "IconCss": "e-icons e-content-icon",
+                "Text": "Analysis Dashboard"
+            }
+        ]
+    },
+    {
+        "Header": "Profile",
+        "IconCss": "e-profile e-icons",
+        "Expanded": true,
+        "Content": [
+            {
+                "IconCss": "e-icons e-content-icon",
+                "Text": "Attendance"
+            },
+            {
+                "IconCss": "e-icons e-content-icon",
+                "Text": "Perfomrance"
+            },
+            {
+                "IconCss": "e-icons e-content-icon",
+                "Text": "Team mates"
+            }
+        ]
+    },
+    {
+        "Header": "Achievements",
+        "IconCss": "e-achievements e-icons",
+        "Expanded": false,
+        "Content": [
+            {
+                "IconCss": "e-icons e-content-icon",
+                "Text": "LeaderBoard"
+            },
+            {
+                "IconCss": "e-icons e-content-icon",
+                "Text": "Awards"
+            }
+        ]
+    },
+    {
+        "Header": "Scheduler",
+        "IconCss": "e-scheduler e-icons",
+        "Expanded": false,
+        "Content": [
+            {
+                "IconCss": "e-icons e-content-icon",
+                "Text": "Calendar"
+            },
+            {
+                "IconCss": "e-icons e-content-icon",
+                "Text": "Meetings"
+            }
+        ]
+    }
+]
